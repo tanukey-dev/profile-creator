@@ -10,7 +10,7 @@ function preload() {
 
 function setup() {
   canvas = createCanvas(1075, 650);
-  canvas.position(0,250);
+  canvas.position(0,300);
 
   input = createFileInput(handleFile);
   input.position(0,50);
@@ -23,6 +23,10 @@ function setup() {
 
   dateInput = createInput("2023/3/2");
   dateInput.position(0, 200);
+
+  button = createButton('保存');
+  button.mousePressed(saveImage);
+  button.position(0, 250);
 }
 
 function draw() {
@@ -55,4 +59,8 @@ function handleFile(file) {
   } else {
     pfImg = null;
   }
+}
+
+function saveImage(){
+  save("profile.png");
 }
