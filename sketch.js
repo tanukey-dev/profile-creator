@@ -1,11 +1,21 @@
 let bgImg;
 let pfImg;
 let maskImg;
+let params;
 
 function preload() {
+  const url = new URL(window.location.href);
+  params = url.searchParams;
+
   bgImg = loadImage("base_ns.png");
-  pfImg = loadImage("mojiskey.png");
   maskImg = loadImage("mask.png");
+
+  const imgUrl = params.get('imgUrl');
+  if (imgUrl) {
+    pfImg = loadImage(imgUrl);
+  } else {
+    pfImg = loadImage("mojiskey.png");
+  }
 }
 
 function setup() {
@@ -14,14 +24,6 @@ function setup() {
 
   input = createFileInput(handleFile);
   input.position(0,50);
-
-  const url = new URL(window.location.href);
-  const params = url.searchParams;
-
-  const imgUrl = params.get('imgUrl');
-  if (imgUrl) {
-    pfImg = createImg(imgUrl);
-  }
 
   const name = params.get('name');
   nameInput = createInput(name ?? "もじすきー");
