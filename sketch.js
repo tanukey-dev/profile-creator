@@ -32,56 +32,58 @@ function preload() {
   }
 }
 
+const FormH = 50;
+
 function setup() {
   canvas = createCanvas(1254, 758);
-  canvas.position(0, 500);
+  canvas.position(0, FormH + 500);
 
   const prLabel = createDiv('プロフィール画像：');
-  prLabel.position(0, 50);
+  prLabel.position(0, FormH + 50);
   input = createFileInput(handleFile);
-  input.position(200, 50);
+  input.position(200, FormH + 50);
 
   const nameLabel = createDiv('ユーザー名：');
-  nameLabel.position(0, 90);
+  nameLabel.position(0, FormH + 90);
   const name = params.get('name');
   nameInput = createInput(name ?? "もじすきー");
-  nameInput.position(200, 90);
+  nameInput.position(200, FormH + 90);
 
   const idLabel = createDiv('ID (id@domain)：');
-  idLabel.position(0, 130);
+  idLabel.position(0, FormH + 130);
   const id = params.get('id');
   idInput = createInput(id ?? "mojiskey@novelskey.tarbin.net");
-  idInput.position(200, 130);
+  idInput.position(200, FormH + 130);
 
   const dateLabel = createDiv('アカウント作成日：');
-  dateLabel.position(0, 170);
+  dateLabel.position(0, FormH + 170);
   const date = params.get('date');
   dateInput = createInput(date ?? "2023/3/2");
-  dateInput.position(200, 170);
+  dateInput.position(200, FormH + 170);
 
   const qrLabel = createDiv('2次元バーコードのURL：');
-  qrLabel.position(0, 210);
+  qrLabel.position(0, FormH + 210);
   const qrUrl = params.get('qrUrl');
   qrInput = createInput(qrUrl ?? "https://novelskey.tarbin.net/");
-  qrInput.position(200, 210);
+  qrInput.position(200, FormH + 210);
 
   const bgLabel = createDiv('背景画像(1254x758px)：');
-  bgLabel.position(0, 250);
+  bgLabel.position(0, FormH + 250);
 
   button = createButton('ノベルスキー');
   button.mousePressed(bgNovelskey);
-  button.position(0, 290);
+  button.position(0, FormH + 290);
 
   button = createButton('おとすきー');
   button.mousePressed(bgOtoskey);
-  button.position(100, 290);
+  button.position(100, FormH + 290);
 
   bgInput = createFileInput(handleBgFile);
-  bgInput.position(0, 330);
+  bgInput.position(0, FormH + 330);
 
   button = createButton('保存');
   button.mousePressed(saveImage);
-  button.position(0, 400);
+  button.position(0, FormH + 400);
 }
 
 const baseW1 = 150;
