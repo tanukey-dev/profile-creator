@@ -15,13 +15,24 @@ function setup() {
   input = createFileInput(handleFile);
   input.position(0,50);
 
-  nameInput = createInput("もじすきー");
+  const url = new URL(window.location.href);
+  const params = url.searchParams;
+
+  const imgUrl = params.get('imgUrl');
+  if (imgUrl) {
+    pfImg = createImg(imgUrl);
+  }
+
+  const name = params.get('name');
+  nameInput = createInput(name ?? "もじすきー");
   nameInput.position(0, 100);
 
-  handleInput = createInput("mojiskey@novelskey.tarbin.net");
-  handleInput.position(0, 150);
+  const id = params.get('id');
+  idInput = createInput(id ?? "mojiskey@novelskey.tarbin.net");
+  idInput.position(0, 150);
 
-  dateInput = createInput("2023/3/2");
+  const date = params.get('id');
+  dateInput = createInput(date ?? "2023/3/2");
   dateInput.position(0, 200);
 
   button = createButton('保存');
@@ -39,12 +50,12 @@ function draw() {
 
   fill('black');
   textSize(15);
-  text("NAME / HANDLE", 460, 150)
+  text("NAME / ID", 460, 150)
   textSize(50);
   text(nameInput.value(), 455, 220)
   textSize(25);
   fill('gray');
-  text(handleInput.value(), 460, 270)
+  text(idInput.value(), 460, 270)
   fill('black');
   textSize(15);
   text("JOINED DATE", 460, 350)
