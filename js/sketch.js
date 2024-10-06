@@ -17,7 +17,10 @@ function preload() {
     bgImg = loadImage("base_ns.png");
   } else if (theme === 'custom') {
     const bgImgUrl = params.get('bgImgUrl');
-    bgImg = loadImage(bgImgUrl);
+    try {
+      bgImg = loadImage(bgImgUrl);
+    } catch(e) {
+    }
   } else {
     bgImg = loadImage("base_ns.png");
   }
@@ -26,7 +29,10 @@ function preload() {
 
   const imgUrl = params.get('imgUrl');
   if (imgUrl) {
-    pfImg = loadImage(imgUrl);
+    try {
+      pfImg = loadImage(imgUrl);
+    } catch(e) {
+    }
   } else {
     pfImg = loadImage("mojiskey.png");
   }
