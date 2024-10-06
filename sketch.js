@@ -55,7 +55,7 @@ function setup() {
 
   const dateLabel = createDiv('アカウント作成日：');
   dateLabel.position(0, 170);
-  const date = params.get('id');
+  const date = params.get('date');
   dateInput = createInput(date ?? "2023/3/2");
   dateInput.position(200, 170);
 
